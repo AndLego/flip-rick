@@ -4,12 +4,6 @@
   box-sizing: border-box;
 }
 
-html,
-body {
-  height: 100vh;
-
-}
-
 html {
   font-size: 62.5%;
   font-family: "Outfit", sans-serif;
@@ -18,4 +12,5 @@ html {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  height: 100%;
 }

@@ -1,0 +1,58 @@
+.bar {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 500px;
+  margin: 4px auto 12px;
+  font-size: 2rem;
+  position: relative;
+  padding: 4px;
+  color: whitesmoke;
+}
+
+.bar::before {
+  content: "";
+  position: absolute;
+  background: rgb(19 255 238 / 19%);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+p, span, button{
+    z-index: 1;
+}
+
+.bar button{
+    padding: 4px 12px;
+    border: none;
+    border-radius: 2px;
+    background-color: black;
+    color: #bfde42;
+    font-weight: 700;
+    font-size: 1.6rem;
+}
+
+.bar button:hover{
+    cursor: pointer;
+    background: #bfde42;
+    color: black;
+}
+
+@media (max-width: 700px) {
+    .bar{
+        width: 300px;
+        font-size: 1.2rem;
+    }
+    .bar button{
+        font-size: 1.2rem;
+    }
+}

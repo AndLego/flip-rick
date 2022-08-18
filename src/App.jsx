@@ -1,23 +1,27 @@
 import React from "react";
-import { useAPI } from "./hooks/useAPI";
 
+import { Header } from "./components/Header/Header";
 import { Login } from "./components/Login/Login";
 import { Game } from "./components/Game/Layout/Game";
 import { Card } from "./components/Game/Card/Card";
+import { Highscore } from "./components/Game/Highscore/Highscore";
 
 import "./App.css";
 
 const App = () => {
   const [user, setUser] = React.useState("");
   const [status, setStatus] = React.useState(false);
-
-
-
+  const [showTop, setShowTop] = React.useState(false);
+  console.log(user);
+  
   return (
     <>
-      {/* {!status && <Login setUser={setUser} setStatus={setStatus} />} */}
-      {/* {status && <Game pjs={pjs} render={(item) => <Card text={item} />} />} */}
-      <Game />
+      <Header />
+      {!status && <Login user={user} setUser={setUser} setStatus={setStatus} />}
+      {status && (
+        <Game setShowTop={setShowTop} setStatus={setStatus} setUser={setUser} />
+      )}
+      {showTop && <Highscore setShowTop={setShowTop} />}
     </>
   );
 };
