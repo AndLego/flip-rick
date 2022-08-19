@@ -1,6 +1,5 @@
 import React from "react";
 
-import { Header } from "./components/Header/Header";
 import { Login } from "./components/Login/Login";
 import { Game } from "./components/Game/Layout/Game";
 import { Card } from "./components/Game/Card/Card";
@@ -16,7 +15,6 @@ const App = () => {
   
   return (
     <>
-      <Header />
       {!status && <Login user={user} setUser={setUser} setStatus={setStatus} />}
       {status && (
         <Game setShowTop={setShowTop} setStatus={setStatus} setUser={setUser} />

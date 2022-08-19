@@ -17,9 +17,8 @@ const Login = ({ user, setUser, setStatus }) => {
 
   return (
     <section className={styles.login}>
-      <div>
         <h1>Welcome!</h1>
-        <label htmlFor="user">Please type your name:</label>
+        <label htmlFor="user">Choose a name between 3-10 letters:</label>
         <input
           placeholder="Morty"
           maxLength={10}
@@ -29,9 +28,8 @@ const Login = ({ user, setUser, setStatus }) => {
           onChange={nickName}
         />
         <button onClick={handleStatus} disabled={user.length < 3}>
-          Let's Go
+          <span>Let's Go</span>
         </button>
-      </div>
     </section>
   );
 };

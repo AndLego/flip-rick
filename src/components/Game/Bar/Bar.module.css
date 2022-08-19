@@ -3,7 +3,7 @@
   justify-content: space-evenly;
   align-items: center;
   width: 500px;
-  margin: 4px auto 12px;
+  margin: 120px auto 12px;
   font-size: 2rem;
   position: relative;
   padding: 4px;
@@ -13,7 +13,7 @@
 .bar::before {
   content: "";
   position: absolute;
-  background: rgb(19 255 238 / 19%);
+  background: rgb(13 111 104 / 74%);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
@@ -27,32 +27,34 @@
   z-index: 0;
 }
 
-p, span, button{
-    z-index: 1;
+p,
+span,
+button {
+  z-index: 1;
 }
 
-.bar button{
-    padding: 4px 12px;
-    border: none;
-    border-radius: 2px;
-    background-color: black;
-    color: #bfde42;
-    font-weight: 700;
-    font-size: 1.6rem;
+.bar button {
+  padding: 4px 12px;
+  border: none;
+  border-radius: 2px;
+  background-color: black;
+  color: #bfde42;
+  font-weight: 700;
+  font-size: 1.6rem;
 }
 
-.bar button:hover{
-    cursor: pointer;
-    background: #bfde42;
-    color: black;
+.bar button:hover {
+  cursor: pointer;
+  background: #bfde42;
+  color: black;
 }
 
 @media (max-width: 700px) {
-    .bar{
-        width: 300px;
-        font-size: 1.2rem;
-    }
-    .bar button{
-        font-size: 1.2rem;
-    }
+  .bar {
+    width: 300px;
+    font-size: 1.2rem;
+  }
+  .bar button {
+    font-size: 1.2rem;
+  }
 }

@@ -1,26 +1,28 @@
 .login {
-  width: 300px;
-  height: 300px;
+  width: 240px;
+  height: 252px;
+  padding: 0 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  background: #1b1717e6;
+  border-radius: 20px;
   position: absolute;
   top: calc(50% - 160px);
-  left: calc(50% - 150px);
+  left: calc(50% - 120px);
 }
 
-.login:before {
-  content: "";
-  position: absolute;
-  background: rgb(48 49 42 / 59%);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+.login h1 {
+  font-size: 3.2rem;
+}
 
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 0;
+.login label {
+  font-size: 1.2rem;
+  line-height: 18px;
+  letter-spacing: 4px;
 }
 
 .login div {
@@ -40,34 +42,72 @@
 }
 
 .login input {
-  background: black;
+  margin-top: 10px;
+  outline: 0;
+  box-shadow: transparent 0px 0px 0px 1px inset;
+  padding: 0.6em;
+  border-radius: 14px;
+  border: 1px solid #333;
+  background-color: #000;
+  color: yellowgreen;
+  width: 76%;
   text-align: center;
-  border: none;
-  padding: 12px 24px;
-  width: 160px;
-  border-radius: 8px;
   letter-spacing: 2px;
+}
+
+.login input::placeholder{
+  color: yellowgreen;
 }
 
 .login input:focus {
   outline: 1px solid yellowgreen;
+  background-color: #000;
+  color: yellowgreen;
+}
+
+.login span {
+  position: relative;
+  transition: color 0.4s;
 }
 
 .login button {
-  background: black;
-  color: #bfde42;
-  font-size: 2rem;
+  border: 0;
+  padding: 0.68em;
+  border-radius: 14px;
   font-weight: 600;
-  padding: 8px 16px;
-  border: transparent;
-  border-radius: 8px;
-  box-shadow: 2px 4px 5px 0px rgb(191 222 66);
+  width: 76%;
+  position: relative;
+  font-family: inherit;
+  letter-spacing: 0.05em;
+  background: linear-gradient(to right, #bfde42, #359323);
+  color: whitesmoke;
+  overflow: hidden;
+  cursor: pointer;
 }
 
-.login button:hover {
-  cursor: pointer;
-  color: black;
-  background-color: #bfde42;
-  border: transparent;
-  box-shadow: none;
+.login button:before,
+.login button:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.login button:before {
+  content: "";
+  background: #000;
+  width: 120%;
+  left: -10%;
+  transform: skew(30deg);
+  transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+}
+
+.login button:hover::before {
+  transform: translate3d(100%, 0, 0);
+}
+
+.login:active {
+  transform: scale(0.95);
 }
