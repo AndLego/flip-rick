@@ -4,6 +4,7 @@ import { useTimer } from "../../../hooks/useTimer";
 
 import { Bar } from "../Bar/Bar";
 import { Card } from "../Card/Card";
+import { Winner } from "../Winner/Winner";
 
 import styles from "./Game.module.css";
 
@@ -11,7 +12,13 @@ const Game = ({ setShowTop, setStatus, setUser }) => {
   const [turns, setTurns] = React.useState(0);
   const [cardA, setCardA] = React.useState(null);
   const [cardB, setCardB] = React.useState(null);
+  //disable button while checking the matching cards
   const [disable, setDisabled] = React.useState(false);
+  //fix the bug that shows the next game after click on new game
+  const [hide, setHide] = React.useState(true);
+  //shows the winner data
+  const [win, setWin] = React.useState(false);
+  const [remainingFlips, setRemainingFlips] = React.useState(10);
 
   const { characters, setRecall, setCharacters } = useAPI();
   const {
@@ -23,7 +30,7 @@ const Game = ({ setShowTop, setStatus, setUser }) => {
     start,
     setStart,
   } = useTimer();
-
+  console.log(remainingFlips);
   //Start New Game
   startTimer();
 
@@ -32,7 +39,9 @@ const Game = ({ setShowTop, setStatus, setUser }) => {
     setCardB(null);
     setRecall(true);
     setTurns(0);
+    setHide(false);
     setStart(false);
+    setRemainingFlips(10);
   };
 
   //Handle New Game Timer with newGame button
@@ -41,6 +50,7 @@ const Game = ({ setShowTop, setStatus, setUser }) => {
       setSeconds(0);
       setMinutes(0);
       setStart(true);
+      setHide(true);
     }, 10);
   }, [start]);
 
@@ -58,6 +68,7 @@ const Game = ({ setShowTop, setStatus, setUser }) => {
         setCharacters((prevCards) => {
           return prevCards.map((card) => {
             if (card.src === cardA.src) {
+              setRemainingFlips(remainingFlips - 1);
               return { ...card, matched: true };
             } else {
               return card;
@@ -71,6 +82,7 @@ const Game = ({ setShowTop, setStatus, setUser }) => {
     }
   }, [cardA, cardB]);
 
+  // console.log(characters)
   //Reset Choices & increase turn
   const resetTurn = () => {
     setCardA(null);
@@ -83,32 +95,44 @@ const Game = ({ setShowTop, setStatus, setUser }) => {
 
   const resetGame = () => {
     setStatus(false);
-    setUser("")
+    setUser("");
   };
 
   return (
     <>
-      <Bar
-        seconds={seconds}
-        minutes={minutes}
-        turns={turns}
-        newGame={newGame}
-        setShowTop={setShowTop}
-      />
-      <div className={styles.game}>
-        <button onClick={resetGame} className={styles.goBack}>
-          New Player
-        </button>
-        {characters.map((card, id) => (
-          <Card
-            key={id}
-            image={card}
-            handleChoice={handleChoice}
-            flipped={card === cardA || card === cardB || card.matched}
-            disabled={disable}
+      {remainingFlips > 0 ? (
+        <>
+          <Bar
+            seconds={seconds}
+            minutes={minutes}
+            turns={turns}
+            newGame={newGame}
+            setShowTop={setShowTop}
           />
-        ))}
-      </div>
+          {hide && (
+            <div className={styles.game}>
+              <button onClick={resetGame} className={styles.goBack}>
+                New Player
+              </button>
+              {characters.map((card, id) => (
+                <Card
+                  key={id}
+                  image={card}
+                  handleChoice={handleChoice}
+                  flipped={card === cardA || card === cardB || card.matched}
+                  disabled={disable}
+                />
+              ))}
+            </div>
+          )}
+        </>
+      ) : (
+        <Winner
+          setShowTop={setShowTop}
+          newGame={newGame}
+          resetGame={resetGame}
+        />
+      )}
     </>
   );
 };

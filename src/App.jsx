@@ -9,7 +9,7 @@ import "./App.css";
 
 const App = () => {
   const [user, setUser] = React.useState("");
-  const [status, setStatus] = React.useState(false);
+  const [status, setStatus] = React.useState(true);
   const [showTop, setShowTop] = React.useState(false);
   console.log(user);
   

@@ -35,8 +35,6 @@ const useUser = (itemName, initialValue) => {
 
 //ARREGLAR ESTEO
 
-
-
 const setHighScore = () =>{
     const {user, createUser} = useUser("top scores", [])
 }
