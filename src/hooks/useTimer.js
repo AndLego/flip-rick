@@ -26,7 +26,15 @@ const useTimer = () => {
     }, [seconds]);
   };
 
-  return { seconds, minutes, setSeconds, setMinutes, setStart, start, startTimer };
+  return {
+    seconds,
+    minutes,
+    setSeconds,
+    setMinutes,
+    setStart,
+    start,
+    startTimer,
+  };
 };
 
 export { useTimer };

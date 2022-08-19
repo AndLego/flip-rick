@@ -1,7 +1,7 @@
 import React from "react";
 
-const useUser = (itemName, initialValue) => {
-  const [user, setUser] = React.useState(initialValue);
+const useScores = (itemName, initialValue) => {
+  const [userScore, setUserScore] = React.useState(initialValue);
 
   /* 1. It is checking if the localStorage has the itemName
     2. If it does not have the itemName, it will set the itemName to the initialValue
@@ -17,26 +17,38 @@ const useUser = (itemName, initialValue) => {
     } else {
       parsedItem = JSON.parse(userItem);
     }
-    setUser(parsedItem);
+    setUserScore(parsedItem);
   }, []);
 
- /**
-  * It takes a newUser object, stringifies it, and then saves it to localStorage
-  * @param newUser - This is the new user object that we want to save to localStorage.
-  */
+  /**
+   * It takes a newUser object, stringifies it, and then saves it to localStorage
+   * @param newUser - This is the new user object that we want to save to localStorage.
+   */
   const createUser = (newUser) => {
     const stringifiedItem = JSON.stringify(newUser);
     localStorage.setItem(itemName, stringifiedItem);
-    setUser(newUser);
+    setUserScore(newUser);
   };
 
-  return { user, createUser };
+  return { userScore, createUser };
 };
 
 //ARREGLAR ESTEO
 
-const setHighScore = () =>{
-    const {user, createUser} = useUser("top scores", [])
-}
+const setHighScore = () => {
+  const { userScore, createUser } = useScores("TOP_SCORES", []);
 
-export { useUser };
+  const addScore = (name, time, turns) => {
+    const scores = [...userScore];
+    scores.push({
+      user: name,
+      time: time,
+      turns: turns,
+    });
+    createUser(scores);
+  };
+
+  return { addScore, userScore };
+};
+
+export { setHighScore };

@@ -1,6 +1,5 @@
 import React from "react";
 import { useAPI } from "../../../hooks/useAPI";
-import { useTimer } from "../../../hooks/useTimer";
 
 import { Bar } from "../Bar/Bar";
 import { Card } from "../Card/Card";
@@ -8,51 +7,44 @@ import { Winner } from "../Winner/Winner";
 
 import styles from "./Game.module.css";
 
-const Game = ({ setShowTop, setStatus, setUser }) => {
+const Game = ({ setShowTop, setStatus, setUser, user, addScore }) => {
   const [turns, setTurns] = React.useState(0);
   const [cardA, setCardA] = React.useState(null);
   const [cardB, setCardB] = React.useState(null);
+
   //disable button while checking the matching cards
   const [disable, setDisabled] = React.useState(false);
+
   //fix the bug that shows the next game after click on new game
   const [hide, setHide] = React.useState(true);
-  //shows the winner data
-  const [win, setWin] = React.useState(false);
+
+  //win condition
   const [remainingFlips, setRemainingFlips] = React.useState(10);
 
-  const { characters, setRecall, setCharacters } = useAPI();
-  const {
-    seconds,
-    minutes,
-    setSeconds,
-    setMinutes,
-    startTimer,
-    start,
-    setStart,
-  } = useTimer();
-  console.log(remainingFlips);
-  //Start New Game
-  startTimer();
+  const [seconds, setSeconds] = React.useState(0);
+  const [minutes, setMinutes] = React.useState(0);
 
+  const { characters, setRecall, setCharacters } = useAPI();
+
+  //NEW GAME
   const newGame = () => {
     setCardA(null);
     setCardB(null);
     setRecall(true);
     setTurns(0);
     setHide(false);
-    setStart(false);
     setRemainingFlips(10);
+    setSeconds(0);
+    setMinutes(0);
   };
 
-  //Handle New Game Timer with newGame button
+  //Bug Fix -- card showing before new game
   React.useEffect(() => {
     setTimeout(() => {
-      setSeconds(0);
-      setMinutes(0);
-      setStart(true);
       setHide(true);
-    }, 10);
-  }, [start]);
+      //podemos poner un loading
+    }, 100);
+  }, [hide]);
 
   //Handle Choices
   const handleChoice = (card) => {
@@ -98,6 +90,21 @@ const Game = ({ setShowTop, setStatus, setUser }) => {
     setUser("");
   };
 
+  //Timer
+  const handleTimeIncrement = () => {
+    setSeconds((prevState) => prevState + 1);
+  };
+
+  React.useEffect(() => {
+    if (seconds == 60) {
+      setSeconds(0);
+      setMinutes((prevState) => prevState + 1);
+    }
+  }, [seconds]);
+
+  //current time
+  let currentTime = `${minutes}:${seconds < 10 ? "0" + seconds : seconds}`;
+
   return (
     <>
       {remainingFlips > 0 ? (
@@ -108,6 +115,7 @@ const Game = ({ setShowTop, setStatus, setUser }) => {
             turns={turns}
             newGame={newGame}
             setShowTop={setShowTop}
+            handleTimeIncrement={handleTimeIncrement}
           />
           {hide && (
             <div className={styles.game}>
@@ -131,6 +139,10 @@ const Game = ({ setShowTop, setStatus, setUser }) => {
           setShowTop={setShowTop}
           newGame={newGame}
           resetGame={resetGame}
+          user={user}
+          currentTime={currentTime}
+          turns={turns}
+          addScore={addScore}
         />
       )}
     </>
