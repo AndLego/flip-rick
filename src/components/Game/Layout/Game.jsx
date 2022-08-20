@@ -13,7 +13,7 @@ const Game = ({
   setUser,
   user,
   saveScore,
-  userScore
+  userScore,
 }) => {
   const [turns, setTurns] = React.useState(0);
   const [cardA, setCardA] = React.useState(null);
@@ -63,7 +63,7 @@ const Game = ({
     if (cardA && cardB) {
       setDisabled(true);
 
-      if (cardA.src === cardB.src) {
+      if (cardA.src === cardB.src && cardA.index !== cardB.index) {
         setCharacters((prevCards) => {
           return prevCards.map((card) => {
             if (card.src === cardA.src) {
@@ -81,7 +81,6 @@ const Game = ({
     }
   }, [cardA, cardB]);
 
-  // console.log(characters)
   //Reset Choices & increase turn
   const resetTurn = () => {
     setCardA(null);
@@ -133,7 +132,7 @@ const Game = ({
               {characters.map((card, id) => (
                 <Card
                   key={id}
-                  image={card}
+                  card={card}
                   handleChoice={handleChoice}
                   flipped={card === cardA || card === cardB || card.matched}
                   disabled={disable}

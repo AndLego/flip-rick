@@ -2,17 +2,17 @@ import React from "react";
 
 import styles from "./Card.module.css";
 
-const Card = ({ image, handleChoice, flipped, disabled }) => {
+const Card = ({ card, handleChoice, flipped, disabled }) => {
   const handleClick = () => {
     if (!disabled) {
-      handleChoice(image);
+      handleChoice(card);
     }
   };
 
   return (
     <div className={styles.card}>
       <div className={flipped ? styles.flipped : ""}>
-        <img className={styles.front} src={image.src} alt="Card Front" />
+        <img className={styles.front} src={card.src} alt="Card Front" />
         <img
           onClick={handleClick}
           className={styles.back}

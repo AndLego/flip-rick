@@ -43,7 +43,11 @@ const useAPI = () => {
         return Math.random() - 0.5;
       });
 
-      const deck = shuffledCharacters.map((src) => ({ src, matched: false }));
+      const deck = shuffledCharacters.map((src) => ({
+        src,
+        matched: false,
+        index: shuffledCharacters.indexOf(src),
+      }));
 
       setCharacters(deck);
     }
