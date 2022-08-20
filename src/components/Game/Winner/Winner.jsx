@@ -10,10 +10,12 @@ const Winner = ({
   currentTime,
   turns,
   saveScore,
+  userScore,
 }) => {
   //Set scores after finishing the game
   React.useEffect(() => {
-    saveScore(user, currentTime, turns);
+    userScore.map((score) => (score.current = false));
+    saveScore(user, currentTime, turns, true);
   }, []);
 
   return (

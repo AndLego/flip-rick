@@ -26,12 +26,13 @@ const App = () => {
     setUserScore(parsedItem);
   }, []);
 
-  const saveScore = (name, time, turns) => {
+  const saveScore = (name, time, turns, current) => {
     const scores = [...userScore];
     scores.push({
       user: name,
       time: time,
       turns: turns,
+      current: current
     });
 
     const stringifiedItem = JSON.stringify(scores);
@@ -49,6 +50,7 @@ const App = () => {
           setUser={setUser}
           user={user}
           saveScore={saveScore}
+          userScore={userScore}
         />
       )}
       {showTop && (

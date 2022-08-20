@@ -13,6 +13,7 @@ const Game = ({
   setUser,
   user,
   saveScore,
+  userScore
 }) => {
   const [turns, setTurns] = React.useState(0);
   const [cardA, setCardA] = React.useState(null);
@@ -122,6 +123,7 @@ const Game = ({
             newGame={newGame}
             setShowTop={setShowTop}
             handleTimeIncrement={handleTimeIncrement}
+            userScore={userScore}
           />
           {hide && (
             <div className={styles.game}>
@@ -149,6 +151,7 @@ const Game = ({
           currentTime={currentTime}
           turns={turns}
           saveScore={saveScore}
+          userScore={userScore}
         />
       )}
     </>

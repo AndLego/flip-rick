@@ -5,31 +5,11 @@ import ReactDOM from "react-dom";
 import styles from "./Highscore.module.css";
 
 const Highscore = ({ setShowTop, userScore, setUserScore }) => {
-  // const [ranking, setRanking] = React.useState(false);
-
-  // //set Ranking
-  // React.useEffect(() => {
-  //   userScore.sort((a, b) => {
-  //     if (
-  //       parseFloat(a.time.split(":").join(".")) >
-  //       parseFloat(b.time.split(":").join("."))
-  //     ) {
-  //       return 1;
-  //     }
-  //     if (
-  //       parseFloat(a.time.split(":").join(".")) <
-  //       parseFloat(b.time.split(":").join("."))
-  //     ) {
-  //       return -1;
-  //     }
-  //     return 0;
-  //   });
-  // }, []);
+  //set Ranking
 
   const deleteScores = () => {
     localStorage.setItem("TOP_SCORES", JSON.stringify([]));
     setUserScore([]);
-    console.log("scores eliminados");
   };
 
   return ReactDOM.createPortal(
@@ -38,7 +18,7 @@ const Highscore = ({ setShowTop, userScore, setUserScore }) => {
         X
       </button>
       <div className={styles.container}>
-        <div>
+        <div className={styles.details}>
           <h4>Player</h4>
           <h4>Turns</h4>
           <h4>Time</h4>
@@ -47,13 +27,20 @@ const Highscore = ({ setShowTop, userScore, setUserScore }) => {
           <div></div>
         ) : (
           <>
-            {userScore.map((score, id) => (
-              <div key={id}>
-                <h4>{score.user}</h4>
-                <p>{score.turns}</p>
-                <p>{score.time}</p>
-              </div>
-            ))}
+            {userScore
+              .sort((a, b) => {
+                return (
+                  parseFloat(a.time.split(":").join(".")) -
+                  parseFloat(b.time.split(":").join("."))
+                );
+              })
+              .map((score, id) => (
+                <div key={id} className={score.current ? styles.current : ""}>
+                  <h4>{score.user}</h4>
+                  <p>{score.turns}</p>
+                  <p>{score.time}</p>
+                </div>
+              ))}
           </>
         )}
       </div>
