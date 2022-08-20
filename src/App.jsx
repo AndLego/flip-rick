@@ -16,7 +16,7 @@ const App = () => {
   React.useEffect(() => {
     const userItem = localStorage.getItem("TOP_SCORES");
     let parsedItem;
-  
+
     if (!localStorage) {
       localStorage.setItem("TOP_SCORES", JSON.stringify([]));
       parsedItem = [];
@@ -25,15 +25,15 @@ const App = () => {
     }
     setUserScore(parsedItem);
   }, []);
-  
+
   const saveScore = (name, time, turns) => {
     const scores = [...userScore];
-      scores.push({
-        user: name,
-        time: time,
-        turns: turns,
-      });
-  
+    scores.push({
+      user: name,
+      time: time,
+      turns: turns,
+    });
+
     const stringifiedItem = JSON.stringify(scores);
     localStorage.setItem("TOP_SCORES", stringifiedItem);
     setUserScore(scores);
@@ -51,7 +51,13 @@ const App = () => {
           saveScore={saveScore}
         />
       )}
-      {showTop && <Highscore setShowTop={setShowTop} userScore={userScore} />}
+      {showTop && (
+        <Highscore
+          setShowTop={setShowTop}
+          userScore={userScore}
+          setUserScore={setUserScore}
+        />
+      )}
     </>
   );
 };

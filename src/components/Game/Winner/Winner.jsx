@@ -13,7 +13,6 @@ const Winner = ({
 }) => {
   //Set scores after finishing the game
   React.useEffect(() => {
-    console.log("holi");
     saveScore(user, currentTime, turns);
   }, []);
 

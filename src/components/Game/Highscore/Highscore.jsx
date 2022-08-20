@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 
 import styles from "./Highscore.module.css";
 
-const Highscore = ({ setShowTop, userScore }) => {
+const Highscore = ({ setShowTop, userScore, setUserScore }) => {
   // const [ranking, setRanking] = React.useState(false);
 
   // //set Ranking
@@ -27,7 +27,8 @@ const Highscore = ({ setShowTop, userScore }) => {
   // }, []);
 
   const deleteScores = () => {
-    localStorage.clear();
+    localStorage.setItem("TOP_SCORES", JSON.stringify([]));
+    setUserScore([]);
     console.log("scores eliminados");
   };
 
@@ -43,7 +44,7 @@ const Highscore = ({ setShowTop, userScore }) => {
           <h4>Time</h4>
         </div>
         {userScore === null ? (
-          <div>Vacio</div>
+          <div></div>
         ) : (
           <>
             {userScore.map((score, id) => (
