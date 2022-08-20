@@ -1,4 +1,5 @@
 import React from "react";
+
 import styles from "./Winner.module.css";
 
 const Winner = ({
@@ -8,11 +9,12 @@ const Winner = ({
   user,
   currentTime,
   turns,
-  addScore,
+  saveScore,
 }) => {
   //Set scores after finishing the game
   React.useEffect(() => {
-    addScore(user, currentTime, turns);
+    console.log("holi");
+    saveScore(user, currentTime, turns);
   }, []);
 
   return (

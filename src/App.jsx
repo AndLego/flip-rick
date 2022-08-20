@@ -1,5 +1,4 @@
 import React from "react";
-import { setHighScore } from "./hooks/useStorage";
 
 import { Login } from "./components/Login/Login";
 import { Game } from "./components/Game/Layout/Game";
@@ -12,9 +11,33 @@ const App = () => {
   const [status, setStatus] = React.useState(false);
   const [showTop, setShowTop] = React.useState(false);
 
-  const { addScore, userScore } = setHighScore();
+  const [userScore, setUserScore] = React.useState([]);
 
-  console.log(user);
+  React.useEffect(() => {
+    const userItem = localStorage.getItem("TOP_SCORES");
+    let parsedItem;
+  
+    if (!localStorage) {
+      localStorage.setItem("TOP_SCORES", JSON.stringify([]));
+      parsedItem = [];
+    } else {
+      parsedItem = JSON.parse(userItem);
+    }
+    setUserScore(parsedItem);
+  }, []);
+  
+  const saveScore = (name, time, turns) => {
+    const scores = [...userScore];
+      scores.push({
+        user: name,
+        time: time,
+        turns: turns,
+      });
+  
+    const stringifiedItem = JSON.stringify(scores);
+    localStorage.setItem("TOP_SCORES", stringifiedItem);
+    setUserScore(scores);
+  };
 
   return (
     <>
@@ -25,7 +48,7 @@ const App = () => {
           setStatus={setStatus}
           setUser={setUser}
           user={user}
-          addScore={addScore}
+          saveScore={saveScore}
         />
       )}
       {showTop && <Highscore setShowTop={setShowTop} userScore={userScore} />}

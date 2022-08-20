@@ -5,11 +5,26 @@ import ReactDOM from "react-dom";
 import styles from "./Highscore.module.css";
 
 const Highscore = ({ setShowTop, userScore }) => {
-  // const { deleteScores } = useUser();
+  // const [ranking, setRanking] = React.useState(false);
 
-  //get Storage scores
-  // let scores = JSON.parse(localStorage.getItem("TOP_SCORES"));
-  console.log(userScore);
+  // //set Ranking
+  // React.useEffect(() => {
+  //   userScore.sort((a, b) => {
+  //     if (
+  //       parseFloat(a.time.split(":").join(".")) >
+  //       parseFloat(b.time.split(":").join("."))
+  //     ) {
+  //       return 1;
+  //     }
+  //     if (
+  //       parseFloat(a.time.split(":").join(".")) <
+  //       parseFloat(b.time.split(":").join("."))
+  //     ) {
+  //       return -1;
+  //     }
+  //     return 0;
+  //   });
+  // }, []);
 
   const deleteScores = () => {
     localStorage.clear();
@@ -22,6 +37,11 @@ const Highscore = ({ setShowTop, userScore }) => {
         X
       </button>
       <div className={styles.container}>
+        <div>
+          <h4>Player</h4>
+          <h4>Turns</h4>
+          <h4>Time</h4>
+        </div>
         {userScore === null ? (
           <div>Vacio</div>
         ) : (
@@ -29,8 +49,8 @@ const Highscore = ({ setShowTop, userScore }) => {
             {userScore.map((score, id) => (
               <div key={id}>
                 <h4>{score.user}</h4>
-                <p>Turns: {score.turns}</p>
-                <p>Time: {score.time}</p>
+                <p>{score.turns}</p>
+                <p>{score.time}</p>
               </div>
             ))}
           </>

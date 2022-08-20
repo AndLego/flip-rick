@@ -23,10 +23,11 @@
 }
 
 .container div {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 140px 80px 80px;
   width: 100%;
+  justify-items: center;
+  align-items: center;
 }
 
 .highscore .close {

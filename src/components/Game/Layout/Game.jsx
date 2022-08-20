@@ -7,7 +7,7 @@ import { Winner } from "../Winner/Winner";
 
 import styles from "./Game.module.css";
 
-const Game = ({ setShowTop, setStatus, setUser, user, addScore }) => {
+const Game = ({ setShowTop, setStatus, setUser, user, saveScore }) => {
   const [turns, setTurns] = React.useState(0);
   const [cardA, setCardA] = React.useState(null);
   const [cardB, setCardB] = React.useState(null);
@@ -142,7 +142,7 @@ const Game = ({ setShowTop, setStatus, setUser, user, addScore }) => {
           user={user}
           currentTime={currentTime}
           turns={turns}
-          addScore={addScore}
+          saveScore={saveScore}
         />
       )}
     </>
