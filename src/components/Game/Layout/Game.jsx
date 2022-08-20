@@ -63,7 +63,7 @@ const Game = ({
     if (cardA && cardB) {
       setDisabled(true);
 
-      if (cardA.src === cardB.src && cardA.index !== cardB.index) {
+      if (cardA.src === cardB.src && cardA.id !== cardB.id) {
         setCharacters((prevCards) => {
           return prevCards.map((card) => {
             if (card.src === cardA.src) {

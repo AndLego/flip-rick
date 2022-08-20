@@ -25,32 +25,30 @@ const useAPI = () => {
   }, [recall]);
 
   const gameSet = (chars) => {
-    let choosenCharacters = [];
+    let choosenCards = [];
+    let pairs = 10; //difficulty
 
-    for (let i = 0; i < 10; i++) {
-      let randomCharacter =
-        chars[Math.floor(Math.random() * chars.length)].image;
-
-      if (!choosenCharacters.includes(randomCharacter)) {
-        choosenCharacters.push(randomCharacter, randomCharacter);
+    while (pairs) {
+      let randomChar = chars[Math.floor(Math.random() * chars.length)].image;
+      if (choosenCards.includes(randomChar)) {
+        continue;
       }
+      choosenCards.push(randomChar);
+      pairs--;
     }
 
-    if (choosenCharacters.length < 20) {
-      gameSet(chars);
-    } else {
-      let shuffledCharacters = choosenCharacters.sort(function () {
-        return Math.random() - 0.5;
-      });
+    //suffle
 
-      const deck = shuffledCharacters.map((src) => ({
+    let suffledCards = [...choosenCards, ...choosenCards]
+      .map((src) => ({
         src,
         matched: false,
-        index: shuffledCharacters.indexOf(src),
-      }));
+        id: Math.random(),
+      }))
+      .sort(() => Math.random() - 0.5);
 
-      setCharacters(deck);
-    }
+    setCharacters(suffledCards);
+    // }
   };
 
   return { characters, setRecall, setCharacters };

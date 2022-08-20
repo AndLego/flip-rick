@@ -45,7 +45,7 @@ const Highscore = ({ setShowTop, userScore, setUserScore }) => {
         )}
       </div>
       <button onClick={deleteScores} className={styles.reset}>
-        Reset
+        Reset Ranking
       </button>
     </section>,
     document.getElementById("modal")
