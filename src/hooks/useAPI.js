@@ -5,7 +5,7 @@ const useAPI = () => {
   const API = `https://rickandmortyapi.com/api/character?page=${randomPage}`;
   const [characters, setCharacters] = React.useState([]);
   const [recall, setRecall] = React.useState(false);
-
+  const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
     async function fetchData() {
@@ -18,8 +18,10 @@ const useAPI = () => {
         } else {
           gameSet(data.results);
         }
+        setLoading(false);
       } catch (err) {
         console.error(err);
+        setLoading(false);
       }
     }
     fetchData();
@@ -53,7 +55,7 @@ const useAPI = () => {
     // }
   };
 
-  return { characters, setRecall, setCharacters };
+  return { characters, setRecall, setCharacters, loading };
 };
 
 export { useAPI };

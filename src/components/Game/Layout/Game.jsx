@@ -2,6 +2,7 @@ import React from "react";
 import { TimeContext } from "../../../context/TimeContext";
 import { useAPI } from "../../../hooks/useAPI";
 
+import { Loader } from "../../Loader/Loader";
 import { Bar } from "../Bar/Bar";
 import { Card } from "../Card/Card";
 import { Winner } from "../Winner/Winner";
@@ -29,7 +30,7 @@ const Game = ({
   //win condition
   const [remainingFlips, setRemainingFlips] = React.useState(10);
 
-  const { characters, setRecall, setCharacters } = useAPI();
+  const { characters, setRecall, setCharacters, loading } = useAPI();
   const { setSeconds, setMinutes } = React.useContext(TimeContext);
 
   //NEW GAME
@@ -48,7 +49,6 @@ const Game = ({
   React.useEffect(() => {
     setTimeout(() => {
       setHide(true);
-      //podemos poner un loading
     }, 100);
   }, [hide]);
 
@@ -94,6 +94,8 @@ const Game = ({
     setStatus(false);
     setUser("");
   };
+
+  if (loading) return <Loader />;
 
   return (
     <>

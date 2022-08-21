@@ -24,7 +24,7 @@
 
 .container div {
   display: grid;
-  grid-template-columns: 140px 80px 80px;
+  grid-template-columns: 100px 80px 80px;
   width: 100%;
   justify-items: center;
   align-items: center;
