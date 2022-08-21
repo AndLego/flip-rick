@@ -1,16 +1,19 @@
 import React from "react";
+import { TimeContext } from "../../../context/TimeContext";
 
-const Timer = ({ handleTimeIncrement, seconds, minutes }) => {
+const Timer = () => {
+  const { handleTimeIncrement, formatSeconds, formatMinutes } =
+    React.useContext(TimeContext);
+
   React.useEffect(() => {
     const currentInterval = setInterval(() => {
       handleTimeIncrement();
     }, 1000);
 
-    return () => clearInterval(currentInterval);
+    return () => {
+      clearInterval(currentInterval);
+    };
   }, []);
-
-  let formatSeconds = seconds < 10 ? "0" + seconds : seconds;
-  let formatMinutes = minutes < 10 ? "0" + minutes : minutes;
 
   return (
     <span>

@@ -4,6 +4,8 @@ import { Login } from "./components/Login/Login";
 import { Game } from "./components/Game/Layout/Game";
 import { Highscore } from "./components/Game/Highscore/Highscore";
 
+import { TimeProvider } from "./context/TimeContext";
+
 import "./App.css";
 
 const App = () => {
@@ -32,7 +34,7 @@ const App = () => {
       user: name,
       time: time,
       turns: turns,
-      current: current
+      current: current,
     });
 
     const stringifiedItem = JSON.stringify(scores);
@@ -42,24 +44,28 @@ const App = () => {
 
   return (
     <>
-      {!status && <Login user={user} setUser={setUser} setStatus={setStatus} />}
-      {status && (
-        <Game
-          setShowTop={setShowTop}
-          setStatus={setStatus}
-          setUser={setUser}
-          user={user}
-          saveScore={saveScore}
-          userScore={userScore}
-        />
-      )}
-      {showTop && (
-        <Highscore
-          setShowTop={setShowTop}
-          userScore={userScore}
-          setUserScore={setUserScore}
-        />
-      )}
+      <TimeProvider>
+        {!status && (
+          <Login user={user} setUser={setUser} setStatus={setStatus} />
+        )}
+        {status && (
+          <Game
+            setShowTop={setShowTop}
+            setStatus={setStatus}
+            setUser={setUser}
+            user={user}
+            saveScore={saveScore}
+            userScore={userScore}
+          />
+        )}
+        {showTop && (
+          <Highscore
+            setShowTop={setShowTop}
+            userScore={userScore}
+            setUserScore={setUserScore}
+          />
+        )}
+      </TimeProvider>
     </>
   );
 };

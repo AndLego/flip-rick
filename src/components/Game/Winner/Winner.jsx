@@ -1,4 +1,5 @@
 import React from "react";
+import { TimeContext } from "../../../context/TimeContext";
 
 import styles from "./Winner.module.css";
 
@@ -7,11 +8,12 @@ const Winner = ({
   newGame,
   resetGame,
   user,
-  currentTime,
   turns,
   saveScore,
   userScore,
 }) => {
+  const {currentTime, formatSeconds, formatMinutes}= React.useContext(TimeContext)
+
   //Set scores after finishing the game
   React.useEffect(() => {
     userScore.map((score) => (score.current = false));

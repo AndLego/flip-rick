@@ -1,9 +1,11 @@
 import React from "react";
 
 const useAPI = () => {
-  const API = "https://rickandmortyapi.com/api/character";
+  let randomPage = Math.floor(Math.random() * 41);
+  const API = `https://rickandmortyapi.com/api/character?page=${randomPage}`;
   const [characters, setCharacters] = React.useState([]);
   const [recall, setRecall] = React.useState(false);
+
 
   React.useEffect(() => {
     async function fetchData() {

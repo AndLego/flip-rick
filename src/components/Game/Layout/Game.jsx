@@ -28,9 +28,7 @@ const Game = ({
   //win condition
   const [remainingFlips, setRemainingFlips] = React.useState(10);
 
-  const [seconds, setSeconds] = React.useState(0);
-  const [minutes, setMinutes] = React.useState(0);
-
+  //ubicar urgente
   const { characters, setRecall, setCharacters } = useAPI();
 
   //NEW GAME
@@ -41,10 +39,10 @@ const Game = ({
     setTurns(0);
     setHide(false);
     setRemainingFlips(10);
-    setSeconds(0);
-    setMinutes(0);
+    // setSeconds(0);
+    // setMinutes(0);
   };
-
+  
   //Bug Fix -- card showing before new game
   React.useEffect(() => {
     setTimeout(() => {
@@ -96,32 +94,14 @@ const Game = ({
     setUser("");
   };
 
-  //Timer
-  const handleTimeIncrement = () => {
-    setSeconds((prevState) => prevState + 1);
-  };
-
-  React.useEffect(() => {
-    if (seconds == 60) {
-      setSeconds(0);
-      setMinutes((prevState) => prevState + 1);
-    }
-  }, [seconds]);
-
-  //current time
-  let currentTime = `${minutes}:${seconds < 10 ? "0" + seconds : seconds}`;
-
   return (
     <>
       {remainingFlips > 0 ? (
         <>
           <Bar
-            seconds={seconds}
-            minutes={minutes}
             turns={turns}
             newGame={newGame}
             setShowTop={setShowTop}
-            handleTimeIncrement={handleTimeIncrement}
             userScore={userScore}
           />
           {hide && (
@@ -147,7 +127,6 @@ const Game = ({
           newGame={newGame}
           resetGame={resetGame}
           user={user}
-          currentTime={currentTime}
           turns={turns}
           saveScore={saveScore}
           userScore={userScore}
