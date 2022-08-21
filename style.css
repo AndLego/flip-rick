@@ -1,0 +1,522 @@
+/*!*****************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/components/Login/Login.module.css ***!
+  \*****************************************************************************************/
+.wTp8aChg_bpapOZCbF9m {
+  width: 240px;
+  height: 252px;
+  padding: 0 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  background: #1b1717e6;
+  border-radius: 20px;
+  position: absolute;
+  top: calc(50% - 160px);
+  left: calc(50% - 120px);
+}
+
+.wTp8aChg_bpapOZCbF9m h1 {
+  font-size: 3.2rem;
+}
+
+.wTp8aChg_bpapOZCbF9m label {
+  font-size: 1.2rem;
+  line-height: 18px;
+  letter-spacing: 4px;
+}
+
+.wTp8aChg_bpapOZCbF9m div {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 2rem;
+}
+
+.wTp8aChg_bpapOZCbF9m h1,
+.wTp8aChg_bpapOZCbF9m label,
+.wTp8aChg_bpapOZCbF9m input {
+  z-index: 1;
+  color: #a3c6cc;
+}
+
+.wTp8aChg_bpapOZCbF9m input {
+  margin-top: 10px;
+  outline: 0;
+  box-shadow: transparent 0px 0px 0px 1px inset;
+  padding: 0.6em;
+  border-radius: 14px;
+  border: 1px solid #333;
+  background-color: #000;
+  color: yellowgreen;
+  width: 76%;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.wTp8aChg_bpapOZCbF9m input::placeholder{
+  color: yellowgreen;
+}
+
+.wTp8aChg_bpapOZCbF9m input:focus {
+  outline: 1px solid yellowgreen;
+  background-color: #000;
+  color: yellowgreen;
+}
+
+.wTp8aChg_bpapOZCbF9m span {
+  position: relative;
+  transition: color 0.4s;
+}
+
+.wTp8aChg_bpapOZCbF9m button {
+  border: 0;
+  padding: 0.68em;
+  border-radius: 14px;
+  font-weight: 600;
+  width: 76%;
+  position: relative;
+  font-family: inherit;
+  letter-spacing: 0.05em;
+  background: linear-gradient(to right, #bfde42, #359323);
+  color: whitesmoke;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.wTp8aChg_bpapOZCbF9m button:before,
+.wTp8aChg_bpapOZCbF9m button:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.wTp8aChg_bpapOZCbF9m button:before {
+  content: "";
+  background: #000;
+  width: 120%;
+  left: -10%;
+  transform: skew(30deg);
+  transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+}
+
+.wTp8aChg_bpapOZCbF9m button:hover::before {
+  transform: translate3d(100%, 0, 0);
+}
+
+.wTp8aChg_bpapOZCbF9m:active {
+  transform: scale(0.95);
+}
+
+/*!******************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/components/Game/Bar/Bar.module.css ***!
+  \******************************************************************************************/
+.bwqLNN5dSgp2Bd0lLIat {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 500px;
+  margin: 120px auto 12px;
+  font-size: 2rem;
+  position: relative;
+  padding: 4px;
+  color: whitesmoke;
+}
+
+.bwqLNN5dSgp2Bd0lLIat::before {
+  content: "";
+  position: absolute;
+  background: rgb(13 111 104 / 74%);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+p,
+span,
+button {
+  z-index: 1;
+}
+
+.bwqLNN5dSgp2Bd0lLIat button {
+  padding: 4px 12px;
+  border: none;
+  border-radius: 2px;
+  background-color: black;
+  color: #bfde42;
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+
+.bwqLNN5dSgp2Bd0lLIat button:hover {
+  cursor: pointer;
+  background: #bfde42;
+  color: black;
+}
+
+@media (max-width: 700px) {
+  .bwqLNN5dSgp2Bd0lLIat {
+    width: 300px;
+    font-size: 1.2rem;
+  }
+  .bwqLNN5dSgp2Bd0lLIat button {
+    font-size: 1.2rem;
+  }
+}
+
+/*!********************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/components/Game/Card/Card.module.css ***!
+  \********************************************************************************************/
+.Nrop5zl_2kZv3rDoKdAt {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  max-width: 100px;
+  max-height: 100px;
+  background-color: transparent;
+}
+
+.Nrop5zl_2kZv3rDoKdAt:hover{
+  cursor: pointer;
+}
+
+.Nrop5zl_2kZv3rDoKdAt img {
+  width: 100%;
+  display: block;
+  border: 2px solid black;
+  border-radius: 8px;
+  transform-style: preserve-3d;
+  perspective: 1000;
+}
+
+/* front of card - picture */
+.Nrop5zl_2kZv3rDoKdAt .aRX2tBRk4XDJ5rfwIF2R {
+  transform: rotateY(90deg);
+  transition: all ease-in 0.2s;
+  position: absolute;
+}
+
+.EkAObA7VlPSjHisCkHFM .aRX2tBRk4XDJ5rfwIF2R {
+  transform: rotateY(0deg);
+  transition-delay: 0.2s;
+}
+
+/* back of card - cover */
+
+.Nrop5zl_2kZv3rDoKdAt .srM5zBAY4bnYY_zwICwC {
+  transition: all ease-in 0.2s;
+  transition-delay: 0.2s;
+}
+
+.EkAObA7VlPSjHisCkHFM .srM5zBAY4bnYY_zwICwC {
+  transform: rotateY(90deg);
+  transition-delay: 0s;
+}
+
+@media (min-width: 700px) {
+  .Nrop5zl_2kZv3rDoKdAt {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+
+/*!************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/components/Game/Winner/Winner.module.css ***!
+  \************************************************************************************************/
+.SLLqKuDRrh0JzyhLILfg {
+  position: absolute;
+  background: #1b1717e6;
+  color: whitesmoke;
+  width: 300px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0 36px;
+  border-radius: 8px;
+  box-shadow: 5px 7px 11px 2px black;
+  top: calc(50% - 200px);
+  left: calc(50% - 150px);
+}
+
+.SLLqKuDRrh0JzyhLILfg h1 {
+  font-size: 4rem;
+}
+
+.IjeH6wUAwZTxzXxGWiWo {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  width: 100%;
+}
+
+.IjeH6wUAwZTxzXxGWiWo p {
+  margin-bottom: 8px;
+}
+
+.IjeH6wUAwZTxzXxGWiWo span {
+  font-size: 1.6rem;
+}
+
+.IjeH6wUAwZTxzXxGWiWo div {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.EYPqB0mUNxCM5A4ehIx_ {
+  text-align: center;
+}
+
+.EYPqB0mUNxCM5A4ehIx_ span {
+  position: relative;
+  transition: color 0.4s;
+}
+
+.EYPqB0mUNxCM5A4ehIx_ button {
+  border: 0;
+  padding: 0.68em;
+  border-radius: 14px;
+  font-weight: 600;
+  width: 76%;
+  position: relative;
+  font-family: inherit;
+  letter-spacing: 0.05em;
+  background: linear-gradient(to right, #bfde42, #359323);
+  color: whitesmoke;
+  overflow: hidden;
+  cursor: pointer;
+  margin: 4px 0;
+}
+
+.EYPqB0mUNxCM5A4ehIx_ button:before,
+.EYPqB0mUNxCM5A4ehIx_ button:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.EYPqB0mUNxCM5A4ehIx_ button:before {
+  content: "";
+  background: #000;
+  width: 120%;
+  left: -10%;
+  transform: skew(30deg);
+  transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+}
+
+.EYPqB0mUNxCM5A4ehIx_ button:hover::before {
+  transform: translate3d(100%, 0, 0);
+}
+
+.EYPqB0mUNxCM5A4ehIx_:active {
+  transform: scale(0.95);
+}
+
+/*!**********************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/components/Game/Layout/Game.module.css ***!
+  \**********************************************************************************************/
+.l6ERhcE9VF0b2QEtJQaw {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  width: 300px;
+  gap: 8px;
+  position: relative;
+}
+
+.IEPqgNr2EVUhMhTVSHXQ{
+  position: absolute;
+  bottom: -48px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  background: black;
+  color: #39a05c;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.IEPqgNr2EVUhMhTVSHXQ:hover{
+  cursor: pointer;
+  color: black;
+  background-color: #39a05c;
+  border: none;
+}
+
+@media (min-width: 700px) {
+  .l6ERhcE9VF0b2QEtJQaw {
+    width: 500px;
+    row-gap: 20px;
+  }
+}
+
+/*!******************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/components/Game/Highscore/Highscore.module.css ***!
+  \******************************************************************************************************/
+.yQ9abp2RvmtrVpacZhej {
+  position: absolute;
+  top: calc(50% - 250px);
+  left: calc(50% - 200px);
+  padding: 40px;
+  width: 400px;
+  height: 500px;
+  font-size: 2rem;
+  background: rgb(48 63 62 / 86%);
+  color: whitesmoke;
+  border: 2px solid yellowgreen;
+  border-radius: 12px;
+  box-shadow: 20px 20px 16px 4px rgb(29 30 24 / 65%);
+  z-index: 5;
+}
+
+.DaLUA4YaGL8HSr0gjvmf {
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  gap: 4px;
+}
+
+.DaLUA4YaGL8HSr0gjvmf div {
+  display: grid;
+  grid-template-columns: 140px 80px 80px;
+  width: 100%;
+  justify-items: center;
+  align-items: center;
+  font-size: 1.6rem;
+}
+
+.yQ9abp2RvmtrVpacZhej .kw4yoAGradFDefEfdYG2 {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 4px 9px 3px;
+  border-radius: 50%;
+  background-color: black;
+  color: #bfde42;
+  border: 2px solid #bfde42;
+}
+
+.yQ9abp2RvmtrVpacZhej .Z7azG0hMKHRvCrar__GD {
+  position: absolute;
+  bottom: 24px;
+  font-size: 1.2rem;
+  width: 112px;
+  padding: 4px 12px;
+  border-radius: 24px;
+  background-color: black;
+  color: #bfde42;
+  border: 2px solid #bfde42;
+}
+
+.yQ9abp2RvmtrVpacZhej button:hover {
+  cursor: pointer;
+  color: black;
+  background-color: #bfde42;
+}
+
+.yQ9abp2RvmtrVpacZhej p {
+  font-size: 1.2rem;
+}
+
+.DaLUA4YaGL8HSr0gjvmf .Cl5WMcHRogt3WJ2bxo6I {
+  font-size: 2rem;
+  text-decoration: underline;
+  margin-bottom: 12px;
+}
+
+.GUOudeCYo0kr96B3NZAP {
+  color: gold;
+}
+
+.LoDLqPQX4oFLd8S9dm8z {
+  top: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background: black;
+  border-radius: 12px;
+  z-index: 2;
+}
+
+.LoDLqPQX4oFLd8S9dm8z > div {
+  position: absolute;
+  top: calc(50% - 40px);
+  left: calc(50% - 60px);
+  width: 140px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 12px;
+  border: 3px solid yellowgreen;
+}
+
+.LoDLqPQX4oFLd8S9dm8z p {
+  font-size: 1.6rem;
+}
+
+.CaJhVFvmUFCILe3aTwqe button {
+  padding: 4px;
+  color: white;
+  background: transparent;
+  border: 1px solid white;
+  border-radius: 4px;
+  width: 40px;
+  margin: 4px;
+}
+
+.CaJhVFvmUFCILe3aTwqe button:nth-child(2):hover{
+  background-color: red;
+}
+
+@media (max-width: 700px) {
+  .yQ9abp2RvmtrVpacZhej {
+    left: calc(50% - 175px);
+    width: 350px;
+  }
+}
+
+/*!***************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/App.css ***!
+  \***************************************************************/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Outfit", sans-serif;
+  background-color: #0d0f38;
+  background-image: url("https://wallpapercave.com/wp/wp6244131.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+}
+
