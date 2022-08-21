@@ -19,8 +19,11 @@ const App = () => {
     const userItem = localStorage.getItem("TOP_SCORES");
     let parsedItem;
 
-    if (!localStorage) {
-      localStorage.setItem("TOP_SCORES", JSON.stringify([]));
+    if (!localStorage === false) {
+      localStorage.setItem(
+        "TOP_SCORES",
+        JSON.stringify([{ user: null, time: null, turns: null }])
+      );
       parsedItem = [];
     } else {
       parsedItem = JSON.parse(userItem);

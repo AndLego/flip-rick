@@ -43,7 +43,7 @@ const Game = ({
     setSeconds(0);
     setMinutes(0);
   };
-  console.log("render game");
+
   //Bug Fix -- card showing before new game
   React.useEffect(() => {
     setTimeout(() => {
