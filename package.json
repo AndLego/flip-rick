@@ -1,15 +1,15 @@
 {
-  "name": "memory-game",
-  "homepage": "https://andlego.github.io/memory-game/",
+  "homepage": "https://andlego.github.io/flip-rick/",
+  "name": "flip-rick",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack serve --config webpack.config.dev.js",
-    "build": "webpack --config webpack.config.dev.js"
+    "build": "webpack --config webpack.config.dev.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
