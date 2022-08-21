@@ -5,11 +5,20 @@ import ReactDOM from "react-dom";
 import styles from "./Highscore.module.css";
 
 const Highscore = ({ setShowTop, userScore, setUserScore }) => {
-  //set Ranking
+  const [confirmation, setConfirmation] = React.useState(false);
+
+  const showConfirmation = () => {
+    setConfirmation(true);
+  };
 
   const deleteScores = () => {
     localStorage.setItem("TOP_SCORES", JSON.stringify([]));
     setUserScore([]);
+    setConfirmation(false);
+  };
+
+  const cancelConfirmation = () => {
+    setConfirmation(false);
   };
 
   return ReactDOM.createPortal(
@@ -44,9 +53,20 @@ const Highscore = ({ setShowTop, userScore, setUserScore }) => {
           </>
         )}
       </div>
-      <button onClick={deleteScores} className={styles.reset}>
+      <button onClick={showConfirmation} className={styles.reset}>
         Reset Ranking
       </button>
+      {confirmation && (
+        <div className={styles.check}>
+          <div>
+            <p>Are you sure?</p>
+            <div className={styles.btns}>
+              <button onClick={deleteScores}>Yes</button>
+              <button onClick={cancelConfirmation}>No</button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>,
     document.getElementById("modal")
   );

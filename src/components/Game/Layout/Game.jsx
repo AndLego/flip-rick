@@ -1,4 +1,5 @@
 import React from "react";
+import { TimeContext } from "../../../context/TimeContext";
 import { useAPI } from "../../../hooks/useAPI";
 
 import { Bar } from "../Bar/Bar";
@@ -28,8 +29,8 @@ const Game = ({
   //win condition
   const [remainingFlips, setRemainingFlips] = React.useState(10);
 
-  //ubicar urgente
   const { characters, setRecall, setCharacters } = useAPI();
+  const { setSeconds, setMinutes } = React.useContext(TimeContext);
 
   //NEW GAME
   const newGame = () => {
@@ -39,10 +40,10 @@ const Game = ({
     setTurns(0);
     setHide(false);
     setRemainingFlips(10);
-    // setSeconds(0);
-    // setMinutes(0);
+    setSeconds(0);
+    setMinutes(0);
   };
-  
+  console.log("render game");
   //Bug Fix -- card showing before new game
   React.useEffect(() => {
     setTimeout(() => {
