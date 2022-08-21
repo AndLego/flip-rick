@@ -1,5 +1,4 @@
 {
-  "homepage": "https://andlego.github.io/flip-rick/",
   "name": "flip-rick",
   "version": "1.0.0",
   "description": "",
@@ -7,9 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack serve --config webpack.config.dev.js",
-    "build": "webpack --config webpack.config.dev.js",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "build": "webpack --config webpack.config.dev.js"
   },
   "keywords": [],
   "author": "",
@@ -27,7 +24,6 @@
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.7.1",
     "css-minimizer-webpack-plugin": "^4.0.0",
-    "gh-pages": "^4.0.0",
     "html-loader": "^4.1.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.6.1",
