@@ -7,7 +7,7 @@
   background-color: transparent;
 }
 
-.card:hover{
+.card:hover {
   cursor: pointer;
 }
 
@@ -37,6 +37,9 @@
 .card .back {
   transition: all ease-in 0.2s;
   transition-delay: 0.2s;
+  width: 90px;
+  height: 90px;
+  background-color: black;
 }
 
 .flipped .back {
@@ -50,4 +53,3 @@
     height: 90px;
   }
 }
-

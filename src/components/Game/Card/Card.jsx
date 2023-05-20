@@ -16,8 +16,8 @@ const Card = ({ card, handleChoice, flipped, disabled }) => {
         <img
           onClick={handleClick}
           className={styles.back}
-          src="https://vsthemes.org/uploads/akamai/cp920s1/28/7c28bdd0fd01c041de1eabde27bb200d.webp"
-          alt=""
+          src="https://b.thumbs.redditmedia.com/ib7Q6tWVRhrB4ON1jb08EYyMRURjjZhHvQbfSjEZzQw.png"
+          alt="front pic"
         />
       </div>
     </div>
